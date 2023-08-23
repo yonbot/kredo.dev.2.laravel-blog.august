@@ -20,9 +20,7 @@
     <div class="mb-3">
       <label for="body" class="form-label text-secondary">Body</label>
       <textarea name="body" id="body" rows="5"
-        class="form-control" placeholder="Start writing here...">
-        {{ old('body') }}
-      </textarea>
+        class="form-control" placeholder="Start writing here...">{{ old('body') }}</textarea>
       {{-- Error --}}
       @error('body')
         <p class="text-danger small">{{ $message }}</p>

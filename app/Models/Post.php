@@ -14,4 +14,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    # One POST has many COMMENTS
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
