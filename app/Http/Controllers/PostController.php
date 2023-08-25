@@ -61,7 +61,7 @@ class PostController extends Controller
 
         // SAVE the image inside the storage/app/public/images folder
         // self → PostController
-        // :: → s   cope operator
+        // :: → scope operator
         $request->image->storeAs(self::LOCAL_STORAGE_FOLDER, $image_name);
 
         return $image_name;

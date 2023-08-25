@@ -60,16 +60,27 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    {{-- PROFILE BUTTON --}}
+                                    <a href="{{ route('profile.show') }}" class="dropdown-item text-primary">Profile <i class="fa-solid fa-user-circle"></i></a>
+
+                                    {{-- LOGOUT --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Logout') }} <i class="fa-solid fa-right-from-bracket"></i>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                {{-- AVATAR --}}
+                                <img src="{{ asset('/storage/avatars/' . Auth::user()->avatar) }}" 
+                                    alt="{{ Auth::user()->avatar }}" 
+                                    width="39" height="39"
+                                    class="border-0 rounded-circle img-thumbnail">
                             </li>
                         @endguest
                     </ul>

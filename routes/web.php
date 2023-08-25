@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +47,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/{id}/destroy', [CommentController::class, 'destroy'])->name('destroy');
     });
 
+    # USER ROUTES
+    # /show, /edit, /update don't Work!
+    Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
+        Route::get('/user/show', [UserController::class, 'show'])->name('show');
+        Route::get('/user/edit', [UserController::class, 'edit'])->name('edit');
+        Route::patch('/user/update', [UserController::class, 'update'])->name('update');
+    });
 
 });
